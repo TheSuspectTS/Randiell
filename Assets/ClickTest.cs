@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class ClickTest : MonoBehaviour
 {
-    public float a;
+    private void OnMouseDown() {
+        Debug.Log("Click! " + gameObject.name);
+    }
 }
