@@ -8,7 +8,7 @@ namespace Kino
     [ExecuteInEditMode]
     [RequireComponent(typeof(Camera))]
     [AddComponentMenu("Kino Image Effects/Binary")]
-    public class Binary : MonoBehaviour
+    public class Binary2 : MonoBehaviour
     {
         #region Editable attributes
 

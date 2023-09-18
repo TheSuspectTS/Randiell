@@ -7,7 +7,7 @@ using UnityEditor;
 namespace Kino
 {
     [CanEditMultipleObjects]
-    [CustomEditor(typeof(Binary))]
+    [CustomEditor(typeof(Binary2))]
     public sealed class BinaryEditor : Editor
     {
         SerializedProperty _ditherType;
