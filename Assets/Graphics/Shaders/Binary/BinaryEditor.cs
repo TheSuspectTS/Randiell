@@ -1,6 +1,6 @@
 ﻿// KinoBinary - Binary image effect for Unity
 // https://github.com/keijiro/KinoBinary
-
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 
@@ -24,11 +24,11 @@ namespace Kino
 
         void OnEnable()
         {
-            _ditherType = serializedObject.FindProperty("_ditherType");
-            _ditherScale = serializedObject.FindProperty("_ditherScale");
-            _color0 = serializedObject.FindProperty("_color0");
-            _color1 = serializedObject.FindProperty("_color1");
-            _opacity = serializedObject.FindProperty("_opacity");
+            _ditherType = serializedObject.FindProperty("_DitherType");
+            _ditherScale = serializedObject.FindProperty("_DitherScale");
+            _color0 = serializedObject.FindProperty("_Color0");
+            _color1 = serializedObject.FindProperty("_Color1");
+            _opacity = serializedObject.FindProperty("_Opacity");
         }
 
         public override void OnInspectorGUI()
@@ -45,3 +45,4 @@ namespace Kino
         }
     }
 }
+#endif

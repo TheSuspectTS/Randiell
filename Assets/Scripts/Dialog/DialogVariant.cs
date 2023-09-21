@@ -16,23 +16,12 @@ public class DialogVariant : MonoBehaviour
     public void Init(DialogTree _tree){
         treeData = _tree;
         enterTextField.text = treeData.enterText;
-        // for(int i=0;i<treeData.actions.Length;i++) {
-        //     // var targetinfo = UnityEvent.GetValidMethodInfo(treeData.actions[i], "Act", new Type[] { typeof(Action) });
-        //     // UnityAction<GameObject> action = Delegate.CreateDelegate(typeof(UnityAction<GameObject>), myScriptInstance, targetinfo, false) as UnityAction<GameObject>;
-        //     // UnityEventTools.AddObjectPersistentListener<GameObject>(button.onClick, action);
+        
+        button.onClick.AddListener(() => Action());
 
-        //     // button.onClick.AddListener(() => Action(treeData.actions[i]));
-        //     // button.onClick.AddListener(() => Action());
-        //     _actions.Add(_tree.actions[i]);
-        // }
-
-        // for(int i=0;i<_actions.Count;i++){
-        //     button.onClick.AddListener(() => _actions[i].Act());
-        // }
     }
 
-    // public void Action(){
-    //     Debug.Log("Action!");
-    //     // _a.Act();
-    // }
+    public void Action(){
+        for(int i=0;i<treeData.actions.Length;i++) treeData.actions[i].Act();
+    }
 }
