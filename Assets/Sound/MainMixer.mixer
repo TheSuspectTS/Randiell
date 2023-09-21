@@ -30,6 +30,8 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: 160c734250e818e4eaaa84b2cd3f3b59
+    name: FXVolume
   - guid: 089acb33183a7074a9f804658645b889
     name: MasterVolume
   - guid: c2f4ff21ffa91dd40a49b562f027f219
@@ -38,6 +40,7 @@ AudioMixerController:
   - guids:
     - d35d036978d6a074d94786f70b614d47
     - dbdca20c9a78ece458ed00c92c8e68a9
+    - ee11876e99521904f9cedb4c9c16f49b
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -52,6 +55,7 @@ AudioMixerGroupController:
   m_GroupID: d35d036978d6a074d94786f70b614d47
   m_Children:
   - {fileID: 6218095396465454117}
+  - {fileID: 4114128741986039614}
   m_Volume: 089acb33183a7074a9f804658645b889
   m_Pitch: bf01daa62975f0a4dbf5d048cecbf1ed
   m_Send: 00000000000000000000000000000000
@@ -87,6 +91,39 @@ AudioMixerSnapshotController:
   m_FloatValues:
     c2f4ff21ffa91dd40a49b562f027f219: -39.703533
   m_TransitionOverrides: {}
+--- !u!243 &4114128741986039614
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FX
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: ee11876e99521904f9cedb4c9c16f49b
+  m_Children: []
+  m_Volume: 160c734250e818e4eaaa84b2cd3f3b59
+  m_Pitch: 0b602314ec86df84b9f8c0f27999d80e
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 5325803784001114342}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &5325803784001114342
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 9c1fb4d993dd9434b8d840ffd61fa70e
+  m_EffectName: Attenuation
+  m_MixLevel: 6ef2608175aa0b046b2defc5b5782142
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &6218095396465454117
 AudioMixerGroupController:
   m_ObjectHideFlags: 0

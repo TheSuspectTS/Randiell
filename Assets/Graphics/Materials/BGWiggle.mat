@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ItemWiggle
+  m_Name: BGWiggle
   m_Shader: {fileID: -6465566751694194690, guid: fac5b6ee39007e64f9d85b5a66d6e9e9, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -51,11 +51,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amount: 0.05
+    - _Amount: 0.005
     - _Float: 0.39
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Scale: 0
+    - _Scale: 10
     - _Speed: 0.5
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0}

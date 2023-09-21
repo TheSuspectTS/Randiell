@@ -6,14 +6,19 @@ using UnityEngine;
 public abstract class EntityData : MonoBehaviour
 {
     [Header("EnityData")]
-    private Material _m;
+    [HideInInspector] public Material _m;
+    public DialogManager dm;
+
+    //Temp
+    //
 
     private void Awake() {
         _m = GetComponent<SpriteRenderer>().material;
     }
 
-    private void OnMouseEnter() { _m.SetFloat("_Scale", 10f); }
-    private void OnMouseExit() { _m.SetFloat("_Scale", 0f); }
+    private void OnMouseEnter() { if(!dm.isTalking){_m.SetFloat("_Scale", 10f);} }
+    private void OnMouseExit() { if(!dm.isTalking){_m.SetFloat("_Scale", 0f);} }
+    private void OnMouseDown() { if(!dm.isTalking){Use(); _m.SetFloat("_Scale", 0f);} }
 
     public abstract void Use();
 }

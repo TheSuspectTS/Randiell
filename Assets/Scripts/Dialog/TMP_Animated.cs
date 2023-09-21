@@ -19,6 +19,7 @@ namespace TMPro
         public ActionEvent onAction;
         public TextRevealEvent onTextReveal;
         public DialogueEvent onDialogueFinish;
+        public DialogManager dm;
 
 
         public void ReadText(string newText)
@@ -67,6 +68,7 @@ namespace TMPro
                         {
                             onTextReveal.Invoke(subTexts[subCounter][visibleCounter]);
                             visibleCounter++;
+                            dm.visibleCounter++;
                             maxVisibleCharacters++;
                             yield return new WaitForSeconds(1f / speed);
                         }
