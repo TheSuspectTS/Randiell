@@ -16,6 +16,10 @@ public abstract class EntityData : MonoBehaviour
         _m = GetComponent<SpriteRenderer>().material;
     }
 
+    private void Start() {
+        if(DialogManager.Instance) dm=DialogManager.Instance;
+    }
+
     private void OnMouseEnter() { if(!dm.isTalking){_m.SetFloat("_Scale", 10f);} }
     private void OnMouseExit() { if(!dm.isTalking){_m.SetFloat("_Scale", 0f);} }
     private void OnMouseDown() { if(!dm.isTalking){Use(); _m.SetFloat("_Scale", 0f);} }

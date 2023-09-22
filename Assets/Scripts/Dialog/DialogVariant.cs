@@ -22,6 +22,8 @@ public class DialogVariant : MonoBehaviour
     }
 
     public void Action(){
-        for(int i=0;i<treeData.actions.Length;i++) treeData.actions[i].Act();
+        if(treeData.actions.Length==0) DialogManager.Instance.ContinueDialogue(treeData);
+        else {for(int i=0;i<treeData.actions.Length;i++) treeData.actions[i].Act(null); }
+        DialogManager.Instance.variantsList.gameObject.SetActive(false);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Action : ScriptableObject
 {
-    public virtual void Act(){
+    public virtual void Act(Entity _e){
         Debug.Log("Default Action");
     }
 }

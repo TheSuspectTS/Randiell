@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -25,9 +26,10 @@ public class DialogManager : MonoBehaviour
     [Tooltip("In Dialog Message")]private int dialogMessageIndex;
 
 
-    [SerializeField] private Transform variantsList;
+    public Transform variantsList;
     [SerializeField] private DialogVariant variantPref;
 
+    private NPC sender;
 
 
     private void Awake() { Instance = this; }
@@ -48,6 +50,9 @@ public class DialogManager : MonoBehaviour
         isTalking = false;
         canSkip = false;
 
+        if(sender) { sender.gameObject.SetActive(true); sender=null; }
+
+
         dialogHistoryField.text += "\n\n" + "----------------";
     }
 
@@ -61,12 +66,12 @@ public class DialogManager : MonoBehaviour
 
         if(dialogMessageIndex<currentDialog.dialog_text.Count-1) { 
             dialogMessageIndex++;
-            ContinueDialogue();
+            ContinueDialogue(null);
         }
         else if(dialogIndex<currentTree.line.dialogs.Length-1) {
             dialogMessageIndex=0;
             dialogIndex++;
-            ContinueDialogue();
+            ContinueDialogue(null);
         }
         else ShowVariants();
     }
@@ -74,7 +79,7 @@ public class DialogManager : MonoBehaviour
     public void ChooseVariant(DialogTree _variant){
         variantsList.gameObject.SetActive(false);
 
-        TryDialog(_variant);
+        TryDialog(_variant, null);
     }
 
     private void ShowVariants(){
@@ -134,18 +139,29 @@ public class DialogManager : MonoBehaviour
         else Debug.LogWarning("No Name");
     }
 
-    private void ContinueDialogue(){
-        TryDialog(null);
+    public void ContinueDialogue(DialogTree _dt){
+        if(_dt != null) TryDialog(_dt,sender);
+        else TryDialog(null, null);
     }
 
-    public void TryDialog(DialogTree _tree){
+    public void TryDialog(DialogTree _tree, NPC _sender){
         
         //Init and reset
         if(!isTalking){
-            currentTree = _tree;
             dialogIndex = 0;
             dialogMessageIndex = 0;
             canSkip = false;
+            sender = null;
+
+            if(_sender){
+                sender=_sender;
+                sender.gameObject.SetActive(false);
+            }
+        }
+        if(_tree != null) currentTree = _tree;
+        if(_sender==sender){
+            dialogIndex=0;
+            dialogMessageIndex=0;
         }
         visibleCounter = 0;
         skipArrow.SetActive(false);

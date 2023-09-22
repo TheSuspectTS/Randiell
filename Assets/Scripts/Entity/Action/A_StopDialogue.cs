@@ -6,7 +6,7 @@ using UnityEngine;
 public class A_StopDialogue : Action
 {
     
-    public override void Act(){
+    public override void Act(Entity _e){
         DialogManager.Instance.FinishDialog();
     }
 }
